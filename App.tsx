@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Selecta from "./src/components/Selecta";
 import { useState } from "react";
 
@@ -12,6 +12,7 @@ export default function App() {
       <Selecta
         label="Choose an option"
         data={data}
+        searchOption={true}
         selectedValue={value}
         setSelectedValue={setValue}
       />

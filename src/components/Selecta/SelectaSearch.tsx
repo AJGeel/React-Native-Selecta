@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, TextInput, StyleSheet, Text } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-
-// import Icon from "../Icon/Icon";
-// import { IconName } from "../Icon/IconName";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 type Props = {
   data: string[];
@@ -30,12 +27,11 @@ export default function ModalSearch({
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.absoluteIcon, styles.searchIcon]}>Search Icon</Text>
-      {/* <Icon
-        name={IconName.Search}
-        size={18}
+      <Ionicons
         style={[styles.absoluteIcon, styles.searchIcon]}
-      /> */}
+        name="search"
+        size={18}
+      />
       <TextInput
         onChangeText={(value) => setQuery(value)}
         value={query}
@@ -45,13 +41,12 @@ export default function ModalSearch({
         autoFocus={true}
       />
       {query && (
-        <TouchableOpacity
-          style={[styles.absoluteIcon, styles.closeButton]}
+        <Ionicons
+          style={[styles.absoluteIcon, styles.clearButton]}
           onPress={onClear}
-        >
-          <Text>CancelIcon</Text>
-          {/* <Icon name={IconName.Cancel} size={18} /> */}
-        </TouchableOpacity>
+          name="close"
+          size={18}
+        />
       )}
     </View>
   );
@@ -59,19 +54,19 @@ export default function ModalSearch({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "rgba(0,0,0,.2)",
+    backgroundColor: "rgba(0,0,0,.08)",
     borderRadius: 4,
     justifyContent: "center",
   },
   absoluteIcon: {
     position: "absolute",
-    padding: 12,
+    padding: 8,
     marginVertical: "auto",
   },
   searchIcon: {
-    opacity: 0.3,
+    opacity: 0.4,
   },
-  closeButton: {
+  clearButton: {
     right: 0,
   },
   textInput: {

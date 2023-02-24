@@ -14,16 +14,33 @@ export default function SelectaInput({
   selectedValue,
   onPress,
 }: Props): React.ReactElement {
+  const hasValue = !!selectedValue;
+
   return (
-    <TouchableOpacity style={styles.labelContainer} onPress={onPress}>
-      <Text style={!!selectedValue ? styles.active : styles.inactive}>
-        {selectedValue ? selectedValue : label}
+    <TouchableOpacity
+      style={hasValue ? styles.containerActive : styles.containerInactive}
+      onPress={onPress}
+    >
+      <Text style={hasValue ? styles.active : styles.inactive}>
+        {hasValue ? selectedValue : label}
       </Text>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
+  containerActive: {
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+  },
+  containerInactive: {
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderRadius: 4,
+    borderWidth: 1,
+    borderBottomWidth: 3,
+    borderColor: "rgba(0,0,0,.1)",
+  },
   labelContainer: {
     padding: 6,
   },
